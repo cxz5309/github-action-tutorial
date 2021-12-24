@@ -29,7 +29,7 @@ jobs:
       
       - name: Set Tag Number
         id: tag-number
-        run: echo ::set-output name=tag::1
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
         
       - name: Check Tag Release
         env:
