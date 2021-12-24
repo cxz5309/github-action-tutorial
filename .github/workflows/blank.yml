@@ -1,4 +1,4 @@
-name: Deploy image to AWS ECR
+name: CI & CD
 
 # Run this workflow every time a new tag is created
 on: 
@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
+      
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -24,12 +26,11 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
-        
-      - name: Check out code
-        uses: actions/checkout@v2
+      
       - name: Set Tag Number
         id: tag-number
         run: echo ::set-output name=tag::1
+        
       - name: Check Tag Release
         env:
           RELEASE_VERSION: ${{ steps.tag-number.outputs.tag }}
