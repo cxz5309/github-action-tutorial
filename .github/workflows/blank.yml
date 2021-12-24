@@ -38,7 +38,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.5.0
         with:
-          node-version: lastest
+          node-version: 16
       - name: Install dependencies
         run: |
           npm install
