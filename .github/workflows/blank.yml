@@ -60,6 +60,6 @@ jobs:
           password: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       - name: Docker run
         run: |
-          docker stop demo && docker rm demo && docker rmi $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          docker run -d -p 3000:3000 --name demo --restart always $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          # docker stop demo && docker rm demo && docker rmi $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker run -d -p 3000:3000 --name demo $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           
