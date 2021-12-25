@@ -60,6 +60,6 @@ jobs:
           password: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       - name: Docker run
         run: |
-          sudo docker stop demo && docker rm demo && docker rmi demo:latest
-          sudo docker run -d -p 3000:3000 --name demo --restart always demo:latest
+          docker stop demo && docker rm demo && docker rmi demo:latest
+          docker run -d -p 3000:3000 --name demo --restart always demo:latest
           
