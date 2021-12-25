@@ -61,5 +61,5 @@ jobs:
       - name: Docker run
         run: |
           # docker stop demo && docker rm demo && docker rmi $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          docker run -d -p 3000:3000 --name demo $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker run -d -p 3000:3000 --name demo 303022694345.dkr.ecr.ap-northeast-2.amazonaws.com/demo:latest
           
